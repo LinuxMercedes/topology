@@ -1,0 +1,10 @@
+# Vim swapfiles
+.*.sw?
+
+# LaTeX turds
+*.aux
+*.log
+*.toc
+
+# PDFs too, ofc
+*.pdf
