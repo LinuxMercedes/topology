@@ -104,3 +104,20 @@ The proof that $p_2$ is onto is similar.
 
 	Therefore, $p_1$ is one--one.
 \end{proof}
+
+\begin{problem}
+	Let $A$ and $B$ be sets, with $B \neq \emptyset$.
+	For each $b \in B$ the corespondence $j_b$ that associates with each element $a \in A$ the element $j_b(a) = (a,b) \in A \times B$ is a function.
+
+	Prove that for each $b \in B, j_b : A \mapsto A \times B$ is one--one.
+	What is $j_b^{-1}(W)$ for a subset $W \subset A \times B$?
+\end{problem}
+
+\begin{proof}[Proof that $j_b : A \mapsto A \times B$ is one--one]
+	Let $a,a' \in A$ such that $j_b(a) = j_b(a')$.
+	Then $(a,b) = (a',b)$, so $a = a'$.
+	Therefore, $j_b$ is one--one.
+\end{proof}
+
+For a subset $W \subset A \times B$, $j_b^{-1}(W) = \{a | (a,b) \in W \}$.
+In other words, it is the set of elements of $A$ which appear in a pair with $b$ in $W$.
