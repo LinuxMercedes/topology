@@ -1,0 +1,62 @@
+\documentclass{report}
+
+% Must-have math packages
+\usepackage{amsmath,amssymb}
+
+% Theorem and proof formatting
+\usepackage{amsthm}
+
+% Reformat proof environment to end proof title with a : and a linebreak
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+	\pushQED{\qed}%
+	\normalfont \topsep6\p@\@plus6\p@\relax
+	\trivlist
+\item\relax
+	{\itshape
+		#1\@addpunct{:}}\newline
+}{%
+	\popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+% -><- symbol for contradictions
+\newcommand{\contradiction}{\ensuremath{\rightarrow\!\leftarrow}}
+
+% Customizable numbering for enumerate
+\usepackage{enumerate}
+
+% Environment for writing problems.
+% Problems are by default numbered by section, but can be explicitly numbered.
+% Explicit numbering causes automatic numbering to start again at the explicit number
+% (i.e., if you explicitly set the number of a problem to 6, the next automatically numbered
+% problem will be 7).
+\newcounter{problem}[section]
+\usepackage{xifthen} % provides \isempty
+\makeatletter
+\newenvironment{problem}[1][]{\par
+	\ifthenelse{\isempty{#1}}{%
+		\stepcounter{problem}
+	}{%
+		\setcounter{problem}{#1}
+	}
+	\normalfont \topsep6\p@\@plus6\p@\relax
+	\trivlist
+	\item\relax
+	{\bfseries
+		Problem \arabic{problem}\@addpunct{:}}\hspace\labelsep\ignorespaces
+}{%
+	\endtrivlist\@endpefalse
+}
+\makeatother
+
+\title{Introduction to Topology \\ Solutions to Selected Exercises}
+\author{Nathan Jarus and Abdirahman Osman}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\include{ch1}
+
+\end{document}

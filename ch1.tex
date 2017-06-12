@@ -1,0 +1,53 @@
+\chapter{Theory of Sets}
+
+\setcounter{section}{3} % Starts section counting at 4; change this if you're inserting earlier sections
+\section{Indexed Families of Sets}
+
+\begin{problem}[3]
+	Let $\{A_\alpha\}_{\alpha \in I}$ be an indexed family of subsets of a set $S$. Let $J \subset I$. Prove that
+	\begin{enumerate}[(a)]
+		\item $\bigcap_{\alpha \in J} A_\alpha \supset \bigcap_{\alpha \in I} A_\alpha$
+		\item $\bigcup_{\alpha \in J} A_\alpha \subset \bigcup_{\alpha \in I} A_\alpha$
+	\end{enumerate}
+\end{problem}
+
+\begin{proof}[Proof of (a)]
+	By definition of $\bigcap$, we know that for all $a \in \bigcap_{\alpha \in I} A_\alpha$, $a \in A_\alpha, \forall \alpha \in I$.
+	Since $J \subset I$, we can further conclude that$a \in A_\alpha, \forall \alpha \in J$.
+
+	But, we also know that for all $a \in \bigcap_{\alpha \in J} A_\alpha$, $a \in A_\alpha, \forall \alpha \in J$, again by definition of $\bigcap$.
+	Thus, each $a \in \bigcap_{\alpha \in J} A_\alpha$ is also in $\bigcap_{\alpha \in I} A_\alpha$.
+
+	Therefore, $\bigcap_{\alpha \in J} A_\alpha \supset \bigcap_{\alpha \in I} A_\alpha$.
+\end{proof}
+
+Note, however, that we do not necessarily have $\bigcap_{\alpha \in J} A_\alpha = \bigcap_{\alpha \in I} A_\alpha$ in the case that $J \neq I$.
+It is possible for there to be $a \in \bigcap_{\alpha \in J} A_\alpha$ but for there to exist $A_\alpha$ where $\alpha \in I - J$ that does not include $a$.
+
+\begin{problem}[5]
+	Let $I$ be the set of real numbers greater than 0. For each $x \in I$, let $A_x$ be the open interval $(0,x)$.
+	Prove that $\bigcap_{x \in I} A_x = \emptyset$ and $\bigcup_{x \in I} A_x = I$.
+	For each $x \in I$, let $B_x$ be the closed interval $[0,x]$.
+	Prove that $\bigcap_{x \in I} B_x = \{0\}$ and $\bigcup_{x \in I} B_x = I \cup \{0\}$.
+\end{problem}
+
+\begin{proof}[Proof of $\bigcap_{x \in I} A_x = \emptyset$]
+	\textit{(By contradiction.)}
+	Suppose that there exists $y \in \bigcap_{x \in I} A_x$.
+	Thus, for every $x \in I$, we have $y \in A_x$.
+	Therefore, we can conclude that $y > 0$ and thus $y \in I$.
+
+	By definition of $A_y$, we know $y \notin A_y$.
+	Therefore, $y \notin \bigcap_{x \in I} A_x$ \contradiction.
+
+	Therefore, $\bigcap_{x \in I} A_x = \emptyset$.
+\end{proof}
+
+\begin{proof}[Proof of $\bigcup_{x \in I} A_x = I$]
+	($\supset$) For every $y \in I$, there exists $x' \in I, x' > y$. Thus, $y \in A_{x'}$.
+	Therefore, $y \in \bigcup_{x \in I} A_x$.
+
+	($\subset$) For every $y \in \bigcup_{x \in I} A_x$, there exists $x' \in I$ such that $y \in A_{x'}$.
+	By definition of $A_{x'}$, we know that $0 < y < x'$.
+	Therefore, $y \in I$.
+\end{proof}
