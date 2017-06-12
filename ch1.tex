@@ -119,5 +119,44 @@ The proof that $p_2$ is onto is similar.
 	Therefore, $j_b$ is one--one.
 \end{proof}
 
-For a subset $W \subset A \times B$, $j_b^{-1}(W) = \{a | (a,b) \in W \}$.
-In other words, it is the set of elements of $A$ which appear in a pair with $b$ in $W$.
+For a subset $W \subset A \times B$, $j_b^{-1}(W) = \{a \mid (a,b) \in W \}$.
+In other words, it is the set of elements of $A$ which appear in $W$ in a pair with $b$.
+
+\begin{problem}[8]
+	Let $A$ be a set to which there belongs precisely $n$ distinct objects.
+	Prove that there are precisely $2^n$ distinct objects that belong to $2^A$.
+\end{problem}
+
+\begin{lemma}
+	\label{lem:binary_string}
+	Suppose $A = \{a_1,\cdots,a_n\}$ is a set with $n$ distinct elements.
+	Let $b : 2^A \mapsto \{0,1\}^n$ be a function where $b(A')$ is an $n$-bit binary string where the $i^{th}$ bit is $1$ if $a_i \in A'$ and $0$ otherwise.
+	Then $b$ is a bijection from $2^A$ to $\{0,1\}^n$.
+\end{lemma}
+
+For an example of $b$, if $n = 5$ and $A' = \{a_1,a_3,a_4\}$, then $b(A') = 01101$. % Is it clear that we count right-to-left?
+
+\begin{proof}[Proof of Lemma~\ref{lem:binary_string}]
+	(\textit{One--one})
+	Let $A', A'' \in 2^A$ such that $b(A') = b(A'') = s$.
+
+	Take arbitrary $a_i \in A'$.
+	Then the $i^{th}$ bit of $s$ is set, so $a_i \in A''$ by definition of $b$.
+	Similarly, every element of $A''$ is in $A'$.
+	Therefore, $A' = A''$ and $b$ is one--one.
+
+	(\textit{Onto})
+	Take arbitrary $s$ in $\{0,1\}^n$.
+	Let $A' \in 2^{A}$ be the set of $a_i \in A$ where the $i^{th}$ bit of $s$ is set.
+	Then $b(A') = s$.
+	Therefore, $b$ is onto.
+\end{proof}
+
+\begin{proof}[Proof of Problem 8]
+	By Lemma~\ref{lem:binary_string}, we have a bijection between $2^A$ and $\{0,1\}^n$.
+	Thus it suffices to show that $\{0,1\}^n$ has $2^n$ distinct elements.
+
+	For each bit of an $n$-bit binary string there are two choices: either the bit is 0 or it is 1.
+	These choices are independent (the value of one bit does not restrict the value of any other).
+	Therefore, there are $2^n$ possible ways to construct a $n$-bit binary string.
+\end{proof}
