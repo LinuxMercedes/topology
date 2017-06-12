@@ -55,3 +55,52 @@ It is possible for there to be $a \in \bigcap_{\alpha \in J} A_\alpha$ but for t
 	By definition of $A_{x'}$, we know that $0 < y < x'$.
 	Therefore, $y \in I$.
 \end{proof}
+
+
+
+\setcounter{section}{5}
+\section{Functions}
+\begin{problem}[5]
+	Let $A$ and $B$ be sets.
+	The correspondence $p_1$ that associates with each element $(a,b) \in A \times B$ the element $p_1(a,b) = a$ is a function called \textit{the first projection}.
+	The correspondence $p_2$ that associates with each element $(a,b) \in A \times B$ the element $p_2(a,b) = b$ is a function called \textit{the second projection}.
+
+	Prove that if $B \neq \emptyset$, then $p_1 : A \times B \mapsto A$ is onto and if $A \neq \emptyset$, then $p_2 : A \times B \mapsto B$ is onto.
+	Under what circumstances is $p_1$ or $p_2$ one--one?
+	What is $p_1^{-1}(\{a\})$ for an element $a \in A$?
+\end{problem}
+
+% TODO characterize p^-1
+
+\begin{proof}[Proof that $p_1 : A \times B \mapsto A$ is onto if $B \neq \emptyset$]
+	Take arbitrary $a \in A$.
+	Since $B$ is nonempty, let $b \in B$ be some element of $B$.
+	Thus, $(a,b) \in A \times B$.
+
+	$a = p_1(a,b)$.
+
+	Therefore, $p_1$ is onto.
+\end{proof}
+The proof that $p_2$ is onto is similar.
+
+% NOTE: I'm iffy on the \emptyset stuff in this part. --NJ
+\begin{proof}[Proof that $p_1 : A \times B \mapsto A$ is one--one iff $B = \{b\}$ or $B = \emptyset$]
+	($\Rightarrow$) \textit{(By contradiction.)}
+	Suppose that $B$ has at least two distinct elements. Let $b, b' \in B$ be distinct elements of $B$.
+
+	Since $p_1$ is one--one and $p_1(a,b) = p_1(a,b')$, then $b = b'$. \contradiction
+
+	Therefore, if $p_1$ is one--one, then $B = \{b\}$ or $B = \emptyset$.
+
+	($\Leftarrow$) \textit{Case $B = \emptyset$}:
+	If $B = \emptyset$, then $A \times B = \emptyset$, so $p_1 : \emptyset \mapsto A$.
+	Therefore, $p_1$ is trivially one--one.
+
+	\textit{Case $B = \{b\}$}:
+	Let $a,a' \in A$, $b,b' \in B$ such that $p_1(a,b) = p_1(a',b') = a$.
+
+	By definition of $p_1$, $a = a'$. By definition of $B$, $b = b'$.
+	Thus, $(a,b) = (a',b')$.
+
+	Therefore, $p_1$ is one--one.
+\end{proof}
