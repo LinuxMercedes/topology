@@ -31,6 +31,19 @@ First, we need to define quantification ($\forall$ and $\exists$) over the empty
 	So for logic to be consistent, $\forall x \in \emptyset, P(x)$ must necessarily be true.
 \end{proof}
 
+Note: These properties directly correspond to the base cases in the \texttt{all} and \texttt{any} functions provided in many modern programming languages
+(including Python, Ruby, Haskell, and C++). For example, consider the following (simplified) implementations of the Haskell functions:
+
+\begin{verbatim}
+any :: [Bool] -> Bool
+any []       = False
+any (x : xs) = x || (any xs)
+
+all :: [Bool] -> Bool
+all []       = True
+all (x : xs) = x && (all xs)
+\end{verbatim}
+
 From this lemma, we can show the given properties of the empty index set:
 
 \begin{proof}
