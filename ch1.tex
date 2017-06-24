@@ -3,6 +3,49 @@
 \setcounter{section}{3} % Starts section counting at 4; change this if you're inserting earlier sections
 \section{Indexed Families of Sets}
 
+\textbf{Page 7:} Show that $\bigcup_{\alpha \in \emptyset} A_\alpha = \emptyset$ and that $\bigcap_{\alpha \in \emptyset} A_\alpha = S$.
+
+First, we need to define quantification ($\forall$ and $\exists$) over the empty set:
+
+\begin{lemma} \label{lem:vacuousness}
+	For any proposition $P(x)$, $\exists x \in \emptyset, P(x)$ is false and $\forall x \in \emptyset, P(x)$ is true.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lem:vacuousness}]
+	Let $P(x)$ be some proposition defined for a set $D$.
+	If $\exists x \in D, P(x)$, by definition we know there is some $x \in D$ where $P(x)$ holds.
+	Therefore, $\exists x \in \emptyset, P(x)$ is false, because for any $x$ where $P(x)$ holds, by definition of $\emptyset$, $x \notin \emptyset$.
+
+	In other words, $\exists x \in D, P(x)$ means we can take an element from $D$ and show $P(x)$ holds; if there is nothing to take from $D$,
+	then there is no way to show that $P(x)$ holds!
+
+	We derive that $\forall x \in \emptyset, P(x)$ is true from the previous result and the rules of logic:
+
+	\begin{align*}
+		\forall x \in \emptyset, P(x) &\equiv \sim \sim (\forall x \in \emptyset, P(x)) & \text{(double negation)}\\
+		&\equiv \sim (\exists x \in \emptyset, \sim P(x)) & \text{(negation of $\forall$)}\\
+		&\equiv \sim \text{False} & \text{(vacuous falsehood)}\\
+		&\equiv \text{True}
+	\end{align*}
+
+	So for logic to be consistent, $\forall x \in \emptyset, P(x)$ must necessarily be true.
+\end{proof}
+
+From this lemma, we can show the given properties of the empty index set:
+
+\begin{proof}
+	To say $a \in \bigcup_{\alpha \in I} A_\alpha$ is equivalent to stating $\exists \alpha \in I$ where $a \in A_\alpha$.
+	By Lemma~\ref{lem:vacuousness}, $\exists \alpha \in \emptyset, a \in A_\alpha$ is false, regardless of our choice of $a$.
+
+	Therefore, $\bigcup_{\alpha \in \emptyset} A_\alpha = \emptyset$.
+
+	Likewise, to say $a \in \bigcap_{\alpha \in I} A_\alpha$ is equivalent to stating $\forall \alpha \in I, a \in A_\alpha$.
+	By Lemma~\ref{lem:vacuousness}, $\forall \alpha \in \emptyset, a \in A_\alpha$ is true, regardless of our choice of $a$.
+	In other words, $\forall a \in S, \forall \alpha \in \emptyset, a \in A_\alpha$ is true.
+
+	Therefore, $\bigcap_{\alpha \in \emptyset} A_\alpha = S$.
+\end{proof}
+
 \begin{problem}[3]
 	Let $\{A_\alpha\}_{\alpha \in I}$ be an indexed family of subsets of a set $S$. Let $J \subset I$. Prove that
 	\begin{enumerate}[(a)]
