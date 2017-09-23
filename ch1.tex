@@ -59,6 +59,26 @@ From this lemma, we can show the given properties of the empty index set:
 	Therefore, $\bigcap_{\alpha \in \emptyset} A_\alpha = S$.
 \end{proof}
 
+\begin{problem}[2]
+	Let $A, B, D \in S$ then \\
+	\begin{enumerate}[(a)]
+		\item $A \cap (B \cup D) = (A \cap B) \cup (A \cap D)$
+		\item $A \cup (B \cap D) = (A \cup B) \cap (A \cup D)$
+	\end{enumerate}
+\end{problem}
+
+\begin{proof}[Proof of (a)]
+	If $A \cap (B \cup D)$ is true then by definition of $\cap$, $x \in A$ and $x \in (B \cup D)$. Therefore $x$ mush be in $A$ and $x$ must be in either
+	be in $B$ or in $D$ but does not need to be in both $B$ and $D$. So $x$ can be either be in $A \cap B$ or in $A \cap D$, in other words $ x \in (A \cap B) \cup (A \cap D)$.
+	Thus by the definition of $\subset$, $A \cap (B \cup D) \subset (A \cap B) \cup (A \cap D)$
+
+	Conversely, if $x \in (A \cap B) \cup (A \cap D)$ then by the definition of $\cup$, $x \in A \cap B$ or $x \in A \cap D$. For either possibility $x \in A$ and $x$ is in
+	$B$ or $D$ but not necessarily both. Therefore $x \in A$ and $x \in (B \cup D)$, which is equivalent to $x \in A \cap (B \cup D)$. Thus by definition of $\subset$,
+	$(A \cap B) \cup (A \cap D) \subset A \cap (B \cup D)$
+
+	Therefore $A \cap (B \cup D) = (A \cap B) \cup (A \cap D)$
+\end{proof}
+
 \begin{problem}[3]
 	Let $\{A_\alpha\}_{\alpha \in I}$ be an indexed family of subsets of a set $S$. Let $J \subset I$. Prove that
 	\begin{enumerate}[(a)]
