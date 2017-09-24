@@ -60,7 +60,7 @@ From this lemma, we can show the given properties of the empty index set:
 \end{proof}
 
 \begin{problem}[2]
-	Let $A, B, D \in S$ then \\
+	Let $A, B, D \subset S$ then \\
 	\begin{enumerate}[(a)]
 		\item $A \cap (B \cup D) = (A \cap B) \cup (A \cap D)$
 		\item $A \cup (B \cap D) = (A \cup B) \cap (A \cup D)$
@@ -68,7 +68,7 @@ From this lemma, we can show the given properties of the empty index set:
 \end{problem}
 
 \begin{proof}[Proof of (a)]
-	If $A \cap (B \cup D)$ is true then by definition of $\cap$, $x \in A$ and $x \in (B \cup D)$. Therefore $x$ mush be in $A$ and $x$ must be in either
+	If $A \cap (B \cup D)$ is true then by definition of $\cap$, $x \in A$ and $x \in (B \cup D)$. Therefore $x$ must be in $A$ and $x$ must be in either
 	be in $B$ or in $D$ but does not need to be in both $B$ and $D$. So $x$ can be either be in $A \cap B$ or in $A \cap D$, in other words $ x \in (A \cap B) \cup (A \cap D)$.
 	Thus by the definition of $\subset$, $A \cap (B \cup D) \subset (A \cap B) \cup (A \cap D)$
 
@@ -79,6 +79,10 @@ From this lemma, we can show the given properties of the empty index set:
 	Therefore $A \cap (B \cup D) = (A \cap B) \cup (A \cap D)$
 \end{proof}
 
+\begin{proof}[Proof of (b)]
+	If $x \in A \cup (B \cap D)$ then by the definition of $\cup$, $x \in A$ or $x \in (B \cap D)$. Thus $x \notin \neg(B \cap D)$, which, according to Demorgan's Law,
+	is equal to $ x \not in \neg(B) \cup \neg(D)$. Therefore $x \in 
+\end{proof}
 \begin{problem}[3]
 	Let $\{A_\alpha\}_{\alpha \in I}$ be an indexed family of subsets of a set $S$. Let $J \subset I$. Prove that
 	\begin{enumerate}[(a)]
